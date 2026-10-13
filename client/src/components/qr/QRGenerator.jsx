@@ -130,4 +130,4 @@ const QRGenerator = ({ onQRReady }) => {
   );
 };
 
-export default QRGenerator;
+export default QRGenerator;

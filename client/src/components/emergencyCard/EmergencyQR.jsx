@@ -54,4 +54,4 @@ const EmergencyQR = () => {
   );
 };
 
-export default EmergencyQR;
+export default EmergencyQR;
