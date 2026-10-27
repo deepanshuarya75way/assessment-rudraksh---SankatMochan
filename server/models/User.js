@@ -93,6 +93,13 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+
+    noticationSettings:{
+      inApp:{type:Boolean,default:true},
+      email:{type:Boolean,default:false},
+      qrScan:{type:Boolean,default:true},
+      sos:{type:Boolean,default:true},
+    },
   },
 
   {
