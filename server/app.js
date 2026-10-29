@@ -57,9 +57,9 @@ app.use("/api/emergency", emergencyRoutes);
 app.use("/api/insurance", insuranceRoutes);
 app.use("/api/documents", documentRoutes);
 app.use("/api/qr", qrRoutes);
-app.use("/api/verification", verificationRoutes);
+app.use("/api/verifications", verificationRoutes);
 app.use("/api/responder/emergency", responderEmergencyRoutes);
-app.use('/api/notification',notificationRouter);
+app.use('/api/notifications',notificationRouter);
 
 app.get("/", (req, res) => {
   res.json({

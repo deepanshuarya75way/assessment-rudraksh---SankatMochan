@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaHeartbeat, FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import NotificationBell from './NotificationBell';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -129,4 +130,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;

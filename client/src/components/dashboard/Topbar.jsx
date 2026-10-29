@@ -1,6 +1,7 @@
 import { Search, Bell, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import NotificationBell from "../layout/NotificationBell";
 
 const Topbar = () => {
   const { user } = useAuth();
@@ -58,7 +59,7 @@ const Topbar = () => {
         </div>
 
         {/* Notifications */}
-        <button
+        {/* <button
           title="Notifications"
           className="
             relative p-2.5 rounded-xl
@@ -70,7 +71,9 @@ const Topbar = () => {
           <Bell size={18} />
           <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-ping" />
           <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full" />
-        </button>
+        </button> */}
+
+        <NotificationBell/>
 
         {/* Settings */}
         <Link
@@ -116,4 +119,4 @@ const Topbar = () => {
   );
 };
 
-export default Topbar;
+export default Topbar;
