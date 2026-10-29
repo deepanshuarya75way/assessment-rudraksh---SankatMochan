@@ -6,6 +6,7 @@ import PatientDocument from "../models/PatientDocument.js";
 import QRScanHistory from "../models/QRScanHistory.js";
 import { getIO } from "../config/socket.js";
 import { generateAITriageAdvice } from "../services/aiService.js";
+import {notify} from '../services/notificationService.js';
 
 // =====================================================
 // GET PUBLIC EMERGENCY CARD
@@ -80,7 +81,14 @@ export const getEmergencyCard = async (req, res) => {
       const io = getIO();
       if (io) {
         io.to(`user_${userId}`).emit("qr_scanned", scanEntry);
+        await notify(userId,{
+    type : "qr_scan",
+    title : "you qr scanned",
+    message : `Scanned at ${new Date().toLocaleString()}`,
+    meta : {scannedBy:req.user?._id || null},
+  })
       }
+
     } catch (historyErr) {
       console.error("Failed to log QR scan history:", historyErr);
     }
