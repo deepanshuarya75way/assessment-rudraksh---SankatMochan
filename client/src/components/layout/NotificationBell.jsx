@@ -17,8 +17,8 @@ export default function NotificationBell(){
   const load = useCallback(async()=>{
     try{
       const {data} = await api.get('/notifications');
-      setItems(data.items);
-      setUnread(data.unreadCount);
+      setItems(data.items || []);
+      setUnread(data.unreadCount || 0);
     }catch(e){}
   },[]);
 
@@ -108,7 +108,7 @@ export default function NotificationBell(){
             </button>
             </div>
 
-            {!items || items.length === 0 && (
+            {(!Array.isArray(items) || items.length) === 0 && (
               <div style={{
                 padding:20, color:'#9ca3af',textAlign:'center',
               }}>
