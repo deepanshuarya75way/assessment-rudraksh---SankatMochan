@@ -1,4 +1,5 @@
 import MedicalProfile from "../models/MedicalProfile.js";
+import User from '../models/User.js';
 
 // ==============================
 // Create Medical Profile
@@ -119,3 +120,25 @@ export const updateMedicalProfile = async (req, res) => {
 
   }
 };
+
+export const getNotificationSetting = async(req,res)=>{
+  const user = await User.findById(req.user._id).select('notificationSettings');
+  res.json(user.notificationSettings);
+};
+
+export const updateNotificationSettings = async(req,res)=>{
+  const allowed = ['inApp','email','qrScan','sos'];
+  const set = {};
+  for(const k of allowed){
+    if(typeof req.body[k] === 'boolean'){
+      set[`notificationSettings.${k}`] = req.body[k];
+    }
+  }
+
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {set},
+    {new:true}
+  ).select('notificationSettings');
+  res.json(user.notificationSettings);
+}

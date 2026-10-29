@@ -8,7 +8,7 @@ import nodemailer from "nodemailer";
  * @param {string} options.html - HTML content
  * @param {string} [options.text] - Plain text content fallback
  */
-export const sendEmail = async ({ to, subject, html, text }) => {
+export  const sendEmail = async ({ to, subject, html, text }) => {
   const user = process.env.SMTP_USER || process.env.EMAIL_USER;
   const rawPass = process.env.SMTP_PASS || process.env.EMAIL_PASS;
   const host = process.env.SMTP_HOST || "smtp.gmail.com";

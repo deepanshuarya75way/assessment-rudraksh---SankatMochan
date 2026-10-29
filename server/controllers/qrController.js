@@ -5,6 +5,7 @@ import User from "../models/User.js";
 import MedicalProfile from "../models/MedicalProfile.js";
 import EmergencyContact from "../models/EmergencyContact.js";
 import QRScanHistory from "../models/QRScanHistory.js";
+//import {notify} from '../services/notificationService.js';
 
 const getLocalIpAddress = () => {
   const interfaces = os.networkInterfaces();
@@ -243,3 +244,5 @@ export const deleteQRScanHistoryItem = async (req, res) => {
     });
   }
 };
+
+

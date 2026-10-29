@@ -16,6 +16,7 @@ import {
   authLimiter,
   publicLimiter,
 } from "./middleware/rateLimitMiddleware.js";
+import notificationRouter from './routes/notificationRoutes.js';
 
 const app = express();
 
@@ -58,6 +59,7 @@ app.use("/api/documents", documentRoutes);
 app.use("/api/qr", qrRoutes);
 app.use("/api/verification", verificationRoutes);
 app.use("/api/responder/emergency", responderEmergencyRoutes);
+app.use('/api/notification',notificationRouter);
 
 app.get("/", (req, res) => {
   res.json({
